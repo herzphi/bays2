@@ -8,10 +8,11 @@ import base64
 # Use Agg backend for rendering without GUI
 import matplotlib
 
-matplotlib.use("Agg")
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
+
+matplotlib.use("Agg")
 
 
 @app.route("/")
@@ -42,7 +43,8 @@ def update_plot():
     posterior = prior * likelihood
     # posterior /= np.trapz(posterior, x)  # Normalize the posterior properly
 
-    # Create the plot using the Agg backend (render to a file, not a GUI window)
+    # Create the plot using the Agg backend
+    # (render to a file, not a GUI window)
     fig, ax = plt.subplots()
     ax.plot(x, prior, label="Prior", color="C0", alpha=0.6)
     ax.plot(x, likelihood, label="Likelihood", color="C1", alpha=0.6)
