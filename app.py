@@ -14,7 +14,7 @@ matplotlib.use("Agg")
 
 @app.route("/")
 def index():
-    return "Hello World"
+    return render_template("index.html")
 
 
 @app.route("/update_plot", methods=["POST"])
@@ -63,4 +63,4 @@ def update_plot():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run()
