@@ -11,18 +11,13 @@ import matplotlib
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-app.set( 'port', ( process.env.PORT || 5000 ));
 
-// Start node server
-app.listen( app.get( 'port' ), function() {
-  console.log( 'Node server is running on port ' + app.get( 'port' ));
-  });
 matplotlib.use("Agg")
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return "Hello World"
 
 
 @app.route("/update_plot", methods=["POST"])
@@ -71,4 +66,4 @@ def update_plot():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0")
