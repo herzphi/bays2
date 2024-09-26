@@ -1,13 +1,10 @@
+import io
+import base64
+import matplotlib
 from flask import Flask, render_template, request, jsonify
 from flask_bootstrap import Bootstrap
 import numpy as np
 import matplotlib.pyplot as plt
-import io
-import base64
-
-# Use Agg backend for rendering without GUI
-import matplotlib
-
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
